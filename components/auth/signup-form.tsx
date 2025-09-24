@@ -170,6 +170,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
             Continue with Google
           </Button>
 
+          {/* Email signup temporarily disabled - requires email server configuration
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
@@ -204,6 +205,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
               Create Account as {roleOptions.find(r => r.id === selectedRole)?.label}
             </Button>
           </form>
+          */}
         </CardContent>
       </Card>
 
