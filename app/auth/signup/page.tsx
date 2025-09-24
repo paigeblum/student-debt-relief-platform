@@ -1,63 +1,108 @@
 import { Metadata } from 'next'
-import { getServerSession } from 'next-auth/next'
-import { redirect } from 'next/navigation'
-import { authOptions } from '@/lib/auth'
+import Link from 'next/link'
 import { SignUpForm } from '@/components/auth/signup-form'
-import { BoomerangWordmark } from '@/components/ui/boomerang-logo'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ArrowLeft, Heart, GraduationCap } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Sign Up | Boomerang',
   description: 'Join our community to help students or get help with your educational debt.',
 }
 
-export default async function SignUpPage({
+export default function SignUpPage({
   searchParams,
 }: {
   searchParams: { role?: string; callbackUrl?: string }
 }) {
-  const session = await getServerSession(authOptions)
-
-  if (session) {
-    redirect(searchParams.callbackUrl || '/')
-  }
-
   return (
-    <div className="container relative min-h-screen flex-col items-center justify-center grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-      <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600 to-blue-700" />
-        <div className="relative z-20">
-          <BoomerangWordmark variant="white" size="lg" />
-        </div>
-        <div className="relative z-20 mt-auto">
-          <blockquote className="space-y-2">
-            <p className="text-lg">
-              "I've donated to 8 students so far and it's incredibly rewarding to see them succeed.
-              The platform makes it easy to track their progress and know that my contribution matters."
-            </p>
-            <footer className="text-sm">David Chen, Software Engineer & Donor</footer>
-          </blockquote>
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50">
+      {/* Header */}
+      <div className="container flex h-16 items-center justify-end py-4">
+        <Button variant="ghost" asChild>
+          <Link href="/" className="flex items-center">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Home
+          </Link>
+        </Button>
       </div>
-      <div className="lg:p-8">
-        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
-          <div className="flex flex-col space-y-2 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">
-              Join our community
-            </h1>
-            <p className="text-sm text-muted-foreground">
-              Create an account to get started
+
+      {/* Main Content */}
+      <div className="container flex items-center justify-center min-h-[calc(100vh-4rem)] py-12">
+        <div className="w-full max-w-lg">
+          <Card className="shadow-xl border-0 bg-white/80 backdrop-blur">
+            <CardHeader className="space-y-1 text-center pb-8">
+              <CardTitle className="text-3xl font-bold">Join our community</CardTitle>
+              <CardDescription className="text-base">
+                Help students succeed or get help with your education
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <SignUpForm preselectedRole={searchParams.role} />
+
+              <div className="text-center">
+                <p className="text-sm text-muted-foreground">
+                  Already have an account?{' '}
+                  <Link
+                    href="/auth/signin"
+                    className="font-medium text-primary underline underline-offset-4 hover:text-primary/80"
+                  >
+                    Sign in here
+                  </Link>
+                </p>
+              </div>
+
+              {/* Role Benefits */}
+              <div className="pt-6 border-t border-gray-100">
+                <div className="grid grid-cols-2 gap-4 text-center">
+                  <div className="space-y-2">
+                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+                      <GraduationCap className="h-5 w-5 text-blue-600" />
+                    </div>
+                    <p className="text-xs font-medium">Students</p>
+                    <p className="text-xs text-muted-foreground">Get help with loans</p>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                      <Heart className="h-5 w-5 text-green-600" />
+                    </div>
+                    <p className="text-xs font-medium">Donors</p>
+                    <p className="text-xs text-muted-foreground">Support education</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Proof */}
+              <div className="pt-4 border-t border-gray-100">
+                <div className="text-center">
+                  <p className="text-xs text-muted-foreground mb-3">
+                    Join thousands making a difference
+                  </p>
+                  <div className="flex justify-center space-x-4 text-xs text-muted-foreground">
+                    <span>$2.4M+ funded</span>
+                    <span>•</span>
+                    <span>3,400+ donors</span>
+                    <span>•</span>
+                    <span>1,200+ students</span>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Additional Help */}
+          <div className="mt-8 text-center">
+            <p className="text-sm text-gray-600">
+              Questions?{' '}
+              <Link href="/how-it-works" className="text-primary hover:underline">
+                Learn how it works
+              </Link>
+              {' or '}
+              <Link href="/about" className="text-primary hover:underline">
+                read our story
+              </Link>
             </p>
           </div>
-          <SignUpForm preselectedRole={searchParams.role} />
-          <p className="px-8 text-center text-sm text-muted-foreground">
-            Already have an account?{' '}
-            <a
-              href="/auth/signin"
-              className="underline underline-offset-4 hover:text-primary"
-            >
-              Sign in
-            </a>
-          </p>
         </div>
       </div>
     </div>
