@@ -20,40 +20,18 @@ export default withAuth(
 
     // Redirect away from auth pages if already authenticated
     if (isAuth && isAuthPage) {
-      return NextResponse.redirect(new URL('/dashboard', req.url))
+      return NextResponse.redirect(new URL('/', req.url))
     }
 
-    // Role-based access control
-    if (isAuth && token) {
-      const userRole = token.role as string
+    // Role-based access control (disabled until dashboard pages are created)
+    // if (isAuth && token) {
+    //   const userRole = token.role as string
 
-      // Admin routes
-      if (req.nextUrl.pathname.startsWith('/admin') && userRole !== 'ADMIN') {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-
-      // Student dashboard
-      if (req.nextUrl.pathname.startsWith('/dashboard/student') && userRole !== 'STUDENT') {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-
-      // Donor dashboard
-      if (req.nextUrl.pathname.startsWith('/dashboard/donor') && userRole !== 'DONOR') {
-        return NextResponse.redirect(new URL('/dashboard', req.url))
-      }
-
-      // Redirect to appropriate dashboard based on role
-      if (req.nextUrl.pathname === '/dashboard') {
-        switch (userRole) {
-          case 'ADMIN':
-            return NextResponse.redirect(new URL('/admin', req.url))
-          case 'STUDENT':
-            return NextResponse.redirect(new URL('/dashboard/student', req.url))
-          case 'DONOR':
-            return NextResponse.redirect(new URL('/dashboard/donor', req.url))
-        }
-      }
-    }
+    //   // Admin routes
+    //   if (req.nextUrl.pathname.startsWith('/admin') && userRole !== 'ADMIN') {
+    //     return NextResponse.redirect(new URL('/', req.url))
+    //   }
+    // }
 
     return NextResponse.next()
   },
