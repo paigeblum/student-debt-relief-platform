@@ -6,8 +6,8 @@ import { ArrowLeft, Heart, GraduationCap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Sign Up | Boomerang',
-  description: 'Join our community to help students or get help with your educational debt.',
+  title: 'Join as a Student | Boomerang',
+  description: 'Create your student profile and connect with donors who want to help with your educational debt.',
 }
 
 export default function SignUpPage({
@@ -32,9 +32,9 @@ export default function SignUpPage({
         <div className="w-full max-w-lg">
           <Card className="shadow-xl border-0 bg-white/80 backdrop-blur">
             <CardHeader className="space-y-1 text-center pb-8">
-              <CardTitle className="text-3xl font-bold">Join our community</CardTitle>
+              <CardTitle className="text-3xl font-bold">Join as a Student</CardTitle>
               <CardDescription className="text-base">
-                Help students succeed or get help with your education
+                Create your profile and connect with donors who want to help
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
@@ -52,22 +52,25 @@ export default function SignUpPage({
                 </p>
               </div>
 
-              {/* Role Benefits */}
+              {/* Student Benefits & Donor Option */}
               <div className="pt-6 border-t border-gray-100">
-                <div className="grid grid-cols-2 gap-4 text-center">
+                <div className="text-center space-y-4">
                   <div className="space-y-2">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-                      <GraduationCap className="h-5 w-5 text-blue-600" />
+                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
+                      <GraduationCap className="h-6 w-6 text-blue-600" />
                     </div>
-                    <p className="text-xs font-medium">Students</p>
-                    <p className="text-xs text-muted-foreground">Get help with loans</p>
+                    <p className="text-sm font-medium">What you'll get as a student</p>
+                    <p className="text-xs text-muted-foreground">Connect with donors • Share your story • Get financial support</p>
                   </div>
-                  <div className="space-y-2">
-                    <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mx-auto">
-                      <Heart className="h-5 w-5 text-green-600" />
-                    </div>
-                    <p className="text-xs font-medium">Donors</p>
-                    <p className="text-xs text-muted-foreground">Support education</p>
+
+                  <div className="pt-3 border-t border-gray-100">
+                    <p className="text-xs text-muted-foreground mb-2">Want to donate instead?</p>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href="/donate">
+                        <Heart className="h-4 w-4 mr-2 text-green-600" />
+                        Browse Students to Support
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>

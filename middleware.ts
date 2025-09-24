@@ -1,11 +1,44 @@
 import { NextResponse } from "next/server"
 import { NextRequest } from "next/server"
+import { getToken } from "next-auth/jwt"
 
-export default function middleware(request: NextRequest) {
-  // Temporarily disabled to avoid redirect loops while Google OAuth is being activated
-  // This middleware will be re-enabled once authentication is fully working
+export async function middleware(request: NextRequest) {
+  const token = await getToken({ req: request })
+  const { pathname } = request.nextUrl
 
-  // For now, allow all routes to be accessed
+  // Protect student dashboard routes - require authentication
+  if (pathname.startsWith('/dashboard/student')) {
+    if (!token) {
+      return NextResponse.redirect(new URL('/auth/signin?callbackUrl=' + encodeURIComponent(pathname), request.url))
+    }
+
+    // Only students can access student dashboard
+    if (token.role !== 'STUDENT') {
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+
+    // If student hasn't completed onboarding, redirect to onboarding
+    // We'll check this by seeing if they have a complete profile
+    // For now, always allow access - we'll implement profile completion check later
+  }
+
+  // Protect admin routes
+  if (pathname.startsWith('/admin')) {
+    if (!token || token.role !== 'ADMIN') {
+      return NextResponse.redirect(new URL('/', request.url))
+    }
+  }
+
+  // Redirect authenticated users from auth pages
+  if (pathname.startsWith('/auth/') && token) {
+    // For students, check if they need onboarding
+    if (token.role === 'STUDENT') {
+      return NextResponse.redirect(new URL('/dashboard/student', request.url))
+    }
+    return NextResponse.redirect(new URL('/onboarding?role=student', request.url))
+  }
+
+  // Allow all other routes (including donor flows, home page, etc.)
   return NextResponse.next()
 }
 

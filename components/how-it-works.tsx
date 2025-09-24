@@ -184,7 +184,7 @@ export function HowItWorks() {
 
             <div className="text-center mt-8">
               <Button size="lg" asChild>
-                <Link href="/auth/signup?role=donor">Start Donating</Link>
+                <Link href="/donate">Start Donating</Link>
               </Button>
             </div>
           </div>

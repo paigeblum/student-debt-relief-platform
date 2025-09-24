@@ -4,6 +4,8 @@ import { Providers } from '@/providers/providers'
 import { Navigation } from '@/components/navigation/navigation'
 import { Footer } from '@/components/footer'
 import { Toaster } from '@/components/ui/toaster'
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/lib/auth'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,14 +16,12 @@ export const metadata: Metadata = {
   keywords: 'student debt, education, donations, debt relief, boomerang',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  // Temporarily removing server session call to avoid database connection issues on Vercel
-  // Will re-enable once authentication environment is properly configured
-  const session = null
+  const session = await getServerSession(authOptions)
 
   return (
     <html lang="en" suppressHydrationWarning>

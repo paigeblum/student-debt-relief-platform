@@ -6,8 +6,8 @@ import { ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Sign In | Boomerang',
-  description: 'Sign in to your account to continue helping students or managing your profile.',
+  title: 'Student Sign In | Boomerang',
+  description: 'Sign in to your student account to manage your profile and connect with donors.',
 }
 
 export default function SignInPage({
@@ -32,24 +32,30 @@ export default function SignInPage({
         <div className="w-full max-w-md">
           <Card className="shadow-xl border-0 bg-white/80 backdrop-blur">
             <CardHeader className="space-y-1 text-center pb-8">
-              <CardTitle className="text-3xl font-bold">Welcome back</CardTitle>
+              <CardTitle className="text-3xl font-bold">Student Sign In</CardTitle>
               <CardDescription className="text-base">
-                Sign in to continue helping students achieve their dreams
+                Welcome back! Sign in to manage your profile and connect with donors
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <SignInForm />
 
-              <div className="text-center">
+              <div className="text-center space-y-3">
                 <p className="text-sm text-muted-foreground">
                   Don't have an account?{' '}
                   <Link
                     href="/auth/signup"
                     className="font-medium text-primary underline underline-offset-4 hover:text-primary/80"
                   >
-                    Sign up here
+                    Create student account
                   </Link>
                 </p>
+                <div className="pt-3 border-t border-gray-100">
+                  <p className="text-xs text-muted-foreground mb-2">Want to donate instead?</p>
+                  <Button variant="outline" size="sm" asChild>
+                    <Link href="/donate">Browse Students to Support</Link>
+                  </Button>
+                </div>
               </div>
 
               {/* Social Proof */}

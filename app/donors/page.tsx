@@ -43,7 +43,7 @@ export default function DonorsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 bg-green-600 hover:bg-green-700" asChild>
-                <Link href="/auth/signup?role=donor">
+                <Link href="/donate">
                   <Heart className="h-5 w-5 mr-2" />
                   Start Giving
                 </Link>
@@ -99,17 +99,17 @@ export default function DonorsPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="text-center">
-              <CardHeader>
+            <Card className="text-center flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-green-600" />
                 </div>
                 <CardTitle>1. Browse Students</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center justify-center">
                   Explore verified student profiles and their stories
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li>• Filter by field of study</li>
                   <li>• Read personal stories</li>
@@ -119,17 +119,17 @@ export default function DonorsPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardHeader>
+            <Card className="text-center flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Gift className="h-8 w-8 text-blue-600" />
                 </div>
                 <CardTitle>2. Make Your Gift</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center justify-center">
                   Choose your donation amount and payment method
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li>• Secure payment processing</li>
                   <li>• One-time or recurring gifts</li>
@@ -139,17 +139,17 @@ export default function DonorsPage() {
               </CardContent>
             </Card>
 
-            <Card className="text-center">
-              <CardHeader>
+            <Card className="text-center flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="h-8 w-8 text-purple-600" />
                 </div>
                 <CardTitle>3. Track Impact</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center justify-center">
                   Follow your students' progress and success
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
                   <li>• Real-time progress updates</li>
                   <li>• Graduation notifications</li>
@@ -173,60 +173,60 @@ export default function DonorsPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card>
-              <CardHeader>
+            <Card className="flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <Target className="h-8 w-8 text-blue-600 mb-2" />
                 <CardTitle>Individual Students</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center">
                   Support specific students whose stories resonate with you
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
+              <CardContent className="flex-grow flex flex-col justify-between">
+                <ul className="space-y-2 text-sm text-gray-600 mb-4 flex-grow">
                   <li>• Personal connection with students</li>
                   <li>• Follow their specific journey</li>
                   <li>• Receive personal thank you notes</li>
                   <li>• See direct loan impact</li>
                 </ul>
-                <Badge variant="secondary">Most Popular</Badge>
+                <Badge variant="secondary" className="self-start">Most Popular</Badge>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
+            <Card className="flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <Users className="h-8 w-8 text-green-600 mb-2" />
                 <CardTitle>General Fund</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center">
                   Help students with the most urgent needs
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
+              <CardContent className="flex-grow flex flex-col justify-between">
+                <ul className="space-y-2 text-sm text-gray-600 mb-4 flex-grow">
                   <li>• Maximum impact allocation</li>
                   <li>• Help students in crisis</li>
                   <li>• Quarterly impact reports</li>
                   <li>• Tax optimization</li>
                 </ul>
-                <Badge variant="outline">Highest Impact</Badge>
+                <Badge variant="outline" className="self-start">Highest Impact</Badge>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
+            <Card className="flex flex-col h-full">
+              <CardHeader className="flex-shrink-0">
                 <Award className="h-8 w-8 text-purple-600 mb-2" />
                 <CardTitle>Group Campaigns</CardTitle>
-                <CardDescription>
+                <CardDescription className="min-h-[3rem] flex items-center">
                   Join community efforts for special causes
                 </CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm text-gray-600 mb-4">
+              <CardContent className="flex-grow flex flex-col justify-between">
+                <ul className="space-y-2 text-sm text-gray-600 mb-4 flex-grow">
                   <li>• Support underrepresented groups</li>
                   <li>• Fund specific programs</li>
                   <li>• Join company initiatives</li>
                   <li>• Build giving communities</li>
                 </ul>
-                <Badge variant="outline">Community Driven</Badge>
+                <Badge variant="outline" className="self-start">Community Driven</Badge>
               </CardContent>
             </Card>
           </div>
@@ -382,9 +382,9 @@ export default function DonorsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
-                <Link href="/auth/signup?role=donor">
+                <Link href="/donate">
                   <Heart className="h-5 w-5 mr-2" />
-                  Become a Donor
+                  Start Donating
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-green-600" asChild>
@@ -394,7 +394,7 @@ export default function DonorsPage() {
               </Button>
             </div>
             <p className="text-green-100 mt-4 text-sm">
-              Tax-deductible • Secure payments • Cancel anytime
+              Tax-deductible • Secure payments • No account required
             </p>
           </div>
         </div>

@@ -11,7 +11,7 @@ interface MainNavProps {
 export function MainNav({ className }: MainNavProps) {
   const pathname = usePathname()
 
-  // Temporarily showing only public routes until authentication is fully configured
+  // Public routes for the main navigation
   const publicRoutes = [
     { href: '/students', label: 'For Students' },
     { href: '/donors', label: 'For Donors' },

@@ -1,6 +1,7 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { formatCurrency } from '@/lib/utils'
 import { Users, DollarSign, GraduationCap, Heart, TrendingUp, Target } from 'lucide-react'
+import Link from 'next/link'
 
 export function Stats() {
   const stats = [
@@ -98,28 +99,32 @@ export function Stats() {
             Ready to be part of this impact?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Card className="bg-blue-600 border-0 text-white hover:bg-blue-700 transition-colors">
-              <CardContent className="p-4">
-                <div className="text-center">
-                  <h3 className="font-semibold mb-1">For Students</h3>
-                  <p className="text-sm text-blue-100 mb-3">Get help with your educational debt</p>
-                  <button className="text-sm font-medium underline hover:no-underline">
-                    Apply Now →
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-green-600 border-0 text-white hover:bg-green-700 transition-colors">
-              <CardContent className="p-4">
-                <div className="text-center">
-                  <h3 className="font-semibold mb-1">For Donors</h3>
-                  <p className="text-sm text-green-100 mb-3">Support the next generation of leaders</p>
-                  <button className="text-sm font-medium underline hover:no-underline">
-                    Start Giving →
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
+            <Link href="/get-started" className="group">
+              <Card className="bg-blue-600 border-0 text-white hover:bg-blue-700 transition-colors">
+                <CardContent className="p-4">
+                  <div className="text-center">
+                    <h3 className="font-semibold mb-1">For Students</h3>
+                    <p className="text-sm text-blue-100 mb-3">Get help with your educational debt</p>
+                    <div className="text-sm font-medium underline group-hover:no-underline">
+                      Get Started →
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/donate" className="group">
+              <Card className="bg-green-600 border-0 text-white hover:bg-green-700 transition-colors">
+                <CardContent className="p-4">
+                  <div className="text-center">
+                    <h3 className="font-semibold mb-1">For Donors</h3>
+                    <p className="text-sm text-green-100 mb-3">Support the next generation of leaders</p>
+                    <div className="text-sm font-medium underline group-hover:no-underline">
+                      Start Giving →
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </div>

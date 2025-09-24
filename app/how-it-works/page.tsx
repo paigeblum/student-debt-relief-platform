@@ -50,7 +50,7 @@ export default function HowItWorksPage() {
                 </Link>
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8" asChild>
-                <Link href="/auth/signup?role=donor">
+                <Link href="/donate">
                   <Heart className="h-5 w-5 mr-2" />
                   I Want to Help
                 </Link>
@@ -315,8 +315,8 @@ export default function HowItWorksPage() {
                       <Star className="h-4 w-4 text-green-600" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-1">See Your Impact</h4>
-                      <p className="text-gray-600">Track graduation rates, career outcomes, and the long-term impact of your generosity.</p>
+                      <h4 className="font-semibold mb-1">Track Your Impact</h4>
+                      <p className="text-gray-600">Follow student progress, graduation rates, and career outcomes from your donations.</p>
                     </div>
                   </div>
                 </div>
@@ -497,7 +497,7 @@ export default function HowItWorksPage() {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-purple-600" asChild>
-                <Link href="/auth/signup?role=donor">
+                <Link href="/donate">
                   <Heart className="h-5 w-5 mr-2" />
                   Give as Donor
                 </Link>

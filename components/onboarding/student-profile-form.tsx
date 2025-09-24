@@ -61,6 +61,18 @@ export function StudentProfileForm({ user, onComplete }: StudentProfileFormProps
   const onSubmit = async (data: StudentFormData) => {
     setIsLoading(true)
     try {
+      // First set the user role to STUDENT
+      const roleResponse = await fetch('/api/user/role', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ role: 'STUDENT' }),
+      })
+
+      if (!roleResponse.ok) {
+        throw new Error('Failed to set role')
+      }
+
+      // Then create the student profile
       const response = await fetch('/api/user/student-profile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

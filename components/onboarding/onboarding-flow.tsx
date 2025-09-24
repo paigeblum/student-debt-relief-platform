@@ -25,27 +25,21 @@ interface OnboardingFlowProps {
 type Step = 'role' | 'profile' | 'complete'
 
 export function OnboardingFlow({ user, preselectedRole }: OnboardingFlowProps) {
-  const [currentStep, setCurrentStep] = useState<Step>(
-    user.role ? 'profile' : 'role'
-  )
-  const [selectedRole, setSelectedRole] = useState<'STUDENT' | 'DONOR'>(
-    (preselectedRole?.toUpperCase() as 'STUDENT' | 'DONOR') ||
-    (user.role === 'STUDENT' ? 'STUDENT' : 'DONOR')
-  )
+  const [currentStep, setCurrentStep] = useState<Step>('profile')
+  const [selectedRole, setSelectedRole] = useState<'STUDENT'>('STUDENT')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const { toast } = useToast()
 
   const steps = [
-    { id: 'role', title: 'Choose Role', description: 'Select how you want to participate' },
     { id: 'profile', title: 'Create Profile', description: 'Tell us about yourself' },
-    { id: 'complete', title: 'All Set!', description: 'Welcome to the community' }
+    { id: 'complete', title: 'All Set!', description: 'Welcome to the student community' }
   ]
 
   const currentStepIndex = steps.findIndex(step => step.id === currentStep)
   const progress = ((currentStepIndex + 1) / steps.length) * 100
 
-  const handleRoleSelection = async (role: 'STUDENT' | 'DONOR') => {
+  const handleRoleSelection = async (role: 'STUDENT') => {
     setIsLoading(true)
     try {
       const response = await fetch('/api/user/role', {
@@ -76,17 +70,7 @@ export function OnboardingFlow({ user, preselectedRole }: OnboardingFlowProps) {
   }
 
   const handleGetStarted = () => {
-    // Redirect to appropriate dashboard
-    switch (selectedRole) {
-      case 'STUDENT':
-        router.push('/dashboard/student')
-        break
-      case 'DONOR':
-        router.push('/dashboard/donor')
-        break
-      default:
-        router.push('/')
-    }
+    router.push('/dashboard/student')
   }
 
   return (
@@ -111,23 +95,8 @@ export function OnboardingFlow({ user, preselectedRole }: OnboardingFlowProps) {
       </Card>
 
       {/* Step content */}
-      {currentStep === 'role' && (
-        <RoleSelection
-          onRoleSelect={handleRoleSelection}
-          isLoading={isLoading}
-          preselectedRole={preselectedRole}
-        />
-      )}
-
-      {currentStep === 'profile' && selectedRole === 'STUDENT' && (
+      {currentStep === 'profile' && (
         <StudentProfileForm
-          user={user}
-          onComplete={handleProfileComplete}
-        />
-      )}
-
-      {currentStep === 'profile' && selectedRole === 'DONOR' && (
-        <DonorProfileForm
           user={user}
           onComplete={handleProfileComplete}
         />

@@ -20,15 +20,15 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" className="text-lg px-8 py-6 h-auto button-hover-lift gradient-bg-primary" asChild>
-                <Link href="/auth/signup?role=student" className="flex flex-col items-center space-y-1">
+                <Link href="/get-started" className="flex flex-col items-center space-y-1">
                   <span className="font-semibold">I'm a Student</span>
-                  <span className="text-sm opacity-90 font-normal">Sign up / verify debt</span>
+                  <span className="text-sm opacity-90 font-normal">Get Started</span>
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 h-auto button-hover-lift border-2" asChild>
-                <Link href="/auth/signup?role=donor" className="flex flex-col items-center space-y-1">
-                  <span className="font-semibold">I'm a Donor</span>
-                  <span className="text-sm opacity-75 font-normal">Choose how to give</span>
+                <Link href="/donate" className="flex flex-col items-center space-y-1">
+                  <span className="font-semibold">Start Giving</span>
+                  <span className="text-sm opacity-75 font-normal">Browse students to support</span>
                 </Link>
               </Button>
             </div>

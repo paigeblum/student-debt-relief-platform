@@ -63,7 +63,7 @@ export const authOptions: NextAuthOptions = {
     signIn: '/auth/signin',
     error: '/auth/error',
     verifyRequest: '/auth/verify-request',
-    newUser: '/onboarding',
+    newUser: '/onboarding?role=student',
   },
   session: {
     strategy: 'jwt',
