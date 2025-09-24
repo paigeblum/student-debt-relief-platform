@@ -64,7 +64,7 @@ export async function POST(req: NextRequest) {
     // Create payment intent
     const paymentIntent = await createPaymentIntent(
       data.amount,
-      donorProfile.stripeCustomerId,
+      donorProfile.stripeCustomerId || undefined,
       {
         donorId: session.user.id,
         studentId: data.studentId || '',
