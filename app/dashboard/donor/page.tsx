@@ -64,8 +64,8 @@ export default function DonorDashboardPage() {
 
         {/* Ways to Give */}
         <div className="grid md:grid-cols-3 gap-6 mb-6">
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer" asChild>
-            <Link href="/students">
+          <Link href="/students">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="h-8 w-8 text-blue-600" />
@@ -81,11 +81,11 @@ export default function DonorDashboardPage() {
                   View verified student profiles, read their stories, and choose who to support
                 </p>
               </CardContent>
-            </Link>
-          </Card>
+            </Card>
+          </Link>
 
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer" asChild>
-            <Link href="/donate">
+          <Link href="/donate">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Target className="h-8 w-8 text-green-600" />
@@ -101,11 +101,11 @@ export default function DonorDashboardPage() {
                   Your donation goes to students who need help most urgently
                 </p>
               </CardContent>
-            </Link>
-          </Card>
+            </Card>
+          </Link>
 
-          <Card className="hover:shadow-lg transition-shadow cursor-pointer" asChild>
-            <Link href="/donate">
+          <Link href="/donate">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader className="text-center">
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Award className="h-8 w-8 text-purple-600" />
@@ -121,8 +121,8 @@ export default function DonorDashboardPage() {
                   Support underrepresented groups and specific programs
                 </p>
               </CardContent>
-            </Link>
-          </Card>
+            </Card>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
