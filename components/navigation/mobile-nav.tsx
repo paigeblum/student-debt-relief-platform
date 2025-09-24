@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -14,9 +13,9 @@ interface MobileNavProps {
 
 export function MobileNav({ className }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const { data: session } = useSession()
   const pathname = usePathname()
 
+  // Temporarily showing only public routes until authentication is fully configured
   const publicRoutes = [
     { href: '/students', label: 'For Students' },
     { href: '/donors', label: 'For Donors' },
@@ -24,39 +23,7 @@ export function MobileNav({ className }: MobileNavProps) {
     { href: '/about', label: 'About' },
   ]
 
-  const studentRoutes = [
-    { href: '/dashboard/student', label: 'Dashboard' },
-    { href: '/profile', label: 'My Profile' },
-  ]
-
-  const donorRoutes = [
-    { href: '/dashboard/donor', label: 'Dashboard' },
-    { href: '/students', label: 'Browse Students' },
-    { href: '/donate', label: 'Donate' },
-  ]
-
-  const adminRoutes = [
-    { href: '/admin', label: 'Admin Dashboard' },
-    { href: '/admin/students', label: 'Verify Students' },
-    { href: '/admin/donations', label: 'Manage Donations' },
-  ]
-
-  const getRoutes = () => {
-    if (!session?.user) return publicRoutes
-
-    switch (session.user.role) {
-      case 'ADMIN':
-        return adminRoutes
-      case 'STUDENT':
-        return studentRoutes
-      case 'DONOR':
-        return donorRoutes
-      default:
-        return publicRoutes
-    }
-  }
-
-  const routes = getRoutes()
+  const routes = publicRoutes
 
   return (
     <div className={cn("flex items-center", className)}>
@@ -88,20 +55,18 @@ export function MobileNav({ className }: MobileNavProps) {
               ))}
             </nav>
 
-            {!session?.user && (
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t">
-                <Button variant="ghost" asChild>
-                  <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
-                    Sign In
-                  </Link>
-                </Button>
-                <Button asChild>
-                  <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
-                    Get Started
-                  </Link>
-                </Button>
-              </div>
-            )}
+            <div className="grid grid-cols-2 gap-4 pt-4 border-t">
+              <Button variant="ghost" asChild>
+                <Link href="/auth/signin" onClick={() => setIsOpen(false)}>
+                  Sign In
+                </Link>
+              </Button>
+              <Button asChild>
+                <Link href="/auth/signup" onClick={() => setIsOpen(false)}>
+                  Get Started
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       )}

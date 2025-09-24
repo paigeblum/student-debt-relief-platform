@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { useSession } from 'next-auth/react'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 
@@ -10,9 +9,9 @@ interface MainNavProps {
 }
 
 export function MainNav({ className }: MainNavProps) {
-  const { data: session } = useSession()
   const pathname = usePathname()
 
+  // Temporarily showing only public routes until authentication is fully configured
   const publicRoutes = [
     { href: '/students', label: 'For Students' },
     { href: '/donors', label: 'For Donors' },
@@ -20,39 +19,7 @@ export function MainNav({ className }: MainNavProps) {
     { href: '/about', label: 'About' },
   ]
 
-  const studentRoutes = [
-    { href: '/dashboard/student', label: 'Dashboard' },
-    { href: '/profile', label: 'My Profile' },
-  ]
-
-  const donorRoutes = [
-    { href: '/dashboard/donor', label: 'Dashboard' },
-    { href: '/students', label: 'Browse Students' },
-    { href: '/donate', label: 'Donate' },
-  ]
-
-  const adminRoutes = [
-    { href: '/admin', label: 'Admin Dashboard' },
-    { href: '/admin/students', label: 'Verify Students' },
-    { href: '/admin/donations', label: 'Manage Donations' },
-  ]
-
-  const getRoutes = () => {
-    if (!session?.user) return publicRoutes
-
-    switch (session.user.role) {
-      case 'ADMIN':
-        return adminRoutes
-      case 'STUDENT':
-        return studentRoutes
-      case 'DONOR':
-        return donorRoutes
-      default:
-        return publicRoutes
-    }
-  }
-
-  const routes = getRoutes()
+  const routes = publicRoutes
 
   return (
     <nav className={cn("flex items-center space-x-6 lg:space-x-8", className)}>
