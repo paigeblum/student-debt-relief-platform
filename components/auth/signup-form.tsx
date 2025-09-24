@@ -16,7 +16,8 @@ interface SignUpFormProps {
 
 export function SignUpForm({ preselectedRole }: SignUpFormProps) {
   const [isLoading, setIsLoading] = useState(false)
-  const [selectedRole, setSelectedRole] = useState(preselectedRole || 'donor')
+  // Always default to student since this is now a student-focused signup
+  const selectedRole = 'student'
   const [email, setEmail] = useState('')
   const { toast } = useToast()
 
@@ -70,71 +71,14 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
     }
   }
 
-  const roleOptions = [
-    {
-      id: 'student',
-      label: 'Student',
-      description: 'Get help with your educational debt',
-      icon: GraduationCap,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50'
-    },
-    {
-      id: 'donor',
-      label: 'Donor',
-      description: 'Support students in need',
-      icon: Heart,
-      color: 'text-green-600',
-      bgColor: 'bg-green-50'
-    }
-  ]
-
   return (
     <div className="grid gap-6">
-      {/* Role Selection */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Choose your role</CardTitle>
-          <CardDescription>
-            Select how you'd like to participate in our community
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            {roleOptions.map((role) => (
-              <div
-                key={role.id}
-                className={`relative flex cursor-pointer select-none items-center rounded-lg border p-4 hover:bg-accent ${
-                  selectedRole === role.id ? 'border-primary bg-accent' : ''
-                }`}
-                onClick={() => setSelectedRole(role.id)}
-              >
-                <div className={`rounded-lg p-3 mr-4 ${role.bgColor}`}>
-                  <role.icon className={`h-6 w-6 ${role.color}`} />
-                </div>
-                <div className="flex-1">
-                  <div className="font-medium">{role.label}</div>
-                  <div className="text-sm text-muted-foreground">
-                    {role.description}
-                  </div>
-                </div>
-                {selectedRole === role.id && (
-                  <div className="absolute right-3 top-3">
-                    <div className="h-2 w-2 rounded-full bg-primary"></div>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Authentication Methods */}
       <Card>
         <CardHeader>
-          <CardTitle>Create your account</CardTitle>
+          <CardTitle>Create your student account</CardTitle>
           <CardDescription>
-            Choose your preferred sign-up method
+            Sign up with Google to get started
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -167,7 +111,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
                 />
               </svg>
             )}
-            Continue with Google
+            Create Student Account with Google
           </Button>
 
           {/* Email signup temporarily disabled - requires email server configuration
@@ -202,7 +146,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
               {isLoading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Create Account as {roleOptions.find(r => r.id === selectedRole)?.label}
+              Create Student Account
             </Button>
           </form>
           */}

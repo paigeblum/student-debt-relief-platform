@@ -44,7 +44,7 @@ export default function HowItWorksPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8" asChild>
-                <Link href="/auth/signup?role=student">
+                <Link href="/auth/signup">
                   <GraduationCap className="h-5 w-5 mr-2" />
                   I'm a Student
                 </Link>
@@ -491,7 +491,7 @@ export default function HowItWorksPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
-                <Link href="/auth/signup?role=student">
+                <Link href="/auth/signup">
                   <GraduationCap className="h-5 w-5 mr-2" />
                   Apply as Student
                 </Link>

@@ -132,7 +132,7 @@ export function HowItWorks() {
 
             <div className="text-center mt-8">
               <Button size="lg" asChild>
-                <Link href="/auth/signup?role=student">Apply as Student</Link>
+                <Link href="/auth/signup">Apply as Student</Link>
               </Button>
             </div>
           </div>

@@ -45,7 +45,7 @@ export default function StudentsPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8" asChild>
-                <Link href="/auth/signup?role=student">
+                <Link href="/auth/signup">
                   <GraduationCap className="h-5 w-5 mr-2" />
                   Apply for Help
                 </Link>
@@ -383,7 +383,7 @@ export default function StudentsPage() {
               Your application takes just a few minutes to complete.
             </p>
             <Button size="lg" variant="secondary" className="text-lg px-8" asChild>
-              <Link href="/auth/signup?role=student">
+              <Link href="/auth/signup">
                 <GraduationCap className="h-5 w-5 mr-2" />
                 Start Your Application
               </Link>

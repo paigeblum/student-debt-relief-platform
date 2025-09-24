@@ -99,7 +99,7 @@ export function Stats() {
             Ready to be part of this impact?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/get-started" className="group">
+            <Link href="/auth/signup" className="group">
               <Card className="bg-blue-600 border-0 text-white hover:bg-blue-700 transition-colors">
                 <CardContent className="p-4">
                   <div className="text-center">

@@ -20,7 +20,7 @@ export function Hero() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Button size="lg" className="text-lg px-8 py-6 h-auto button-hover-lift gradient-bg-primary" asChild>
-                <Link href="/get-started" className="flex flex-col items-center space-y-1">
+                <Link href="/auth/signup" className="flex flex-col items-center space-y-1">
                   <span className="font-semibold">I'm a Student</span>
                   <span className="text-sm opacity-90 font-normal">Get Started</span>
                 </Link>
