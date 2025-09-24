@@ -76,7 +76,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
       {/* Authentication Methods */}
       <Card>
         <CardHeader>
-          <CardTitle>Create your student account</CardTitle>
+          <CardTitle>Create your account</CardTitle>
           <CardDescription>
             Sign up with Google to get started
           </CardDescription>
@@ -111,7 +111,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
                 />
               </svg>
             )}
-            Create Student Account with Google
+            Create Account with Google
           </Button>
 
           {/* Email signup temporarily disabled - requires email server configuration
@@ -146,7 +146,7 @@ export function SignUpForm({ preselectedRole }: SignUpFormProps) {
               {isLoading && (
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               )}
-              Create Student Account
+              Create Account
             </Button>
           </form>
           */}
