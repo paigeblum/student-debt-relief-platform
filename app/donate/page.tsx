@@ -1,6 +1,9 @@
-import { Metadata } from 'next'
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { DonationModal } from '@/components/payment/donation-modal'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
@@ -18,12 +21,39 @@ import {
   ArrowLeft
 } from 'lucide-react'
 
-export const metadata: Metadata = {
-  title: 'Support Students | Boomerang',
-  description: 'Browse student profiles and make donations to help with educational debt.',
-}
-
 export default function DonatePage() {
+  const [donationModal, setDonationModal] = useState<{
+    isOpen: boolean
+    type: 'GENERAL_FUND' | 'INDIVIDUAL_STUDENT' | 'GROUP_CAMPAIGN'
+    studentId?: string
+    studentName?: string
+    groupCampaignId?: string
+    campaignName?: string
+  }>({
+    isOpen: false,
+    type: 'GENERAL_FUND'
+  })
+
+  const openDonationModal = (
+    type: 'GENERAL_FUND' | 'INDIVIDUAL_STUDENT' | 'GROUP_CAMPAIGN',
+    studentId?: string,
+    studentName?: string,
+    groupCampaignId?: string,
+    campaignName?: string
+  ) => {
+    setDonationModal({
+      isOpen: true,
+      type,
+      studentId,
+      studentName,
+      groupCampaignId,
+      campaignName
+    })
+  }
+
+  const closeDonationModal = () => {
+    setDonationModal(prev => ({ ...prev, isOpen: false }))
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -85,7 +115,12 @@ export default function DonatePage() {
                   Your donation goes to students who need help most urgently
                 </p>
               </div>
-              <Button className="w-full mt-auto">Donate to Fund</Button>
+              <Button
+                className="w-full mt-auto"
+                onClick={() => openDonationModal('GENERAL_FUND')}
+              >
+                Donate to Fund
+              </Button>
             </CardContent>
           </Card>
 
@@ -150,7 +185,12 @@ export default function DonatePage() {
                     </div>
                   </div>
                 </div>
-                <Button className="w-full mt-4">Support Sarah</Button>
+                <Button
+                  className="w-full mt-4"
+                  onClick={() => openDonationModal('INDIVIDUAL_STUDENT', 'sarah-id', 'Sarah M.')}
+                >
+                  Support Sarah
+                </Button>
               </CardContent>
             </Card>
 
@@ -188,7 +228,12 @@ export default function DonatePage() {
                     </div>
                   </div>
                 </div>
-                <Button className="w-full mt-4">Support Marcus</Button>
+                <Button
+                  className="w-full mt-4"
+                  onClick={() => openDonationModal('INDIVIDUAL_STUDENT', 'marcus-id', 'Marcus J.')}
+                >
+                  Support Marcus
+                </Button>
               </CardContent>
             </Card>
 
@@ -226,7 +271,12 @@ export default function DonatePage() {
                     </div>
                   </div>
                 </div>
-                <Button className="w-full mt-4">Support Elena</Button>
+                <Button
+                  className="w-full mt-4"
+                  onClick={() => openDonationModal('INDIVIDUAL_STUDENT', 'elena-id', 'Elena R.')}
+                >
+                  Support Elena
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -300,7 +350,11 @@ export default function DonatePage() {
                     />
                   </div>
                 </div>
-                <Button className="w-full" size="lg">
+                <Button
+                  className="w-full"
+                  size="lg"
+                  onClick={() => openDonationModal('GENERAL_FUND')}
+                >
                   <Heart className="h-4 w-4 mr-2" />
                   Donate Now
                 </Button>
@@ -332,6 +386,16 @@ export default function DonatePage() {
           </div>
         </div>
       </div>
+
+      <DonationModal
+        isOpen={donationModal.isOpen}
+        onClose={closeDonationModal}
+        type={donationModal.type}
+        studentId={donationModal.studentId}
+        studentName={donationModal.studentName}
+        groupCampaignId={donationModal.groupCampaignId}
+        campaignName={donationModal.campaignName}
+      />
     </div>
   )
 }
