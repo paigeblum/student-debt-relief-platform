@@ -15,8 +15,8 @@ export function StudentExplainer() {
   const steps = [
     {
       icon: Shield,
-      title: 'Verify Your Loans',
-      description: 'Securely connect your student loan accounts through our verified integration'
+      title: 'Upload One Document',
+      description: 'Just upload your loan statement — our AI extracts all needed info for verification'
     },
     {
       icon: Eye,
@@ -25,8 +25,8 @@ export function StudentExplainer() {
     },
     {
       icon: GraduationCap,
-      title: 'Join the Network',
-      description: 'Access support, resources, and a community that understands your journey'
+      title: 'Receive Help',
+      description: 'Donors pay your loan servicers directly — money never goes to you personally'
     }
   ]
 
@@ -44,8 +44,8 @@ export function StudentExplainer() {
               Get Real Help with Your Student Debt
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Verify your student loans, choose to stay private or share your story,
-              and join a network of support that's helping students graduate debt-free.
+              Upload just one loan statement to get verified. Donors pay your loan servicers directly —
+              never to you personally. Choose to stay private or share your story.
             </p>
           </div>
 

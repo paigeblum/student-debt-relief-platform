@@ -38,8 +38,8 @@ export default function DonorsPage() {
               Change Lives Through <span className="text-green-600">Education</span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Help deserving students overcome debt barriers to their education. Every dollar you contribute
-              goes directly toward student loans, creating lasting impact on careers and communities.
+              Make tangible impact now with our General Fund, or choose specific students to support.
+              Every dollar goes directly to loan servicers — never to students' pockets — creating lasting impact on careers and communities.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 bg-green-600 hover:bg-green-700" asChild>
@@ -102,19 +102,19 @@ export default function DonorsPage() {
             <Card className="text-center flex flex-col h-full">
               <CardHeader className="flex-shrink-0">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-8 w-8 text-green-600" />
+                  <Gift className="h-8 w-8 text-green-600" />
                 </div>
-                <CardTitle>1. Browse Students</CardTitle>
+                <CardTitle>1. Choose Your Approach</CardTitle>
                 <CardDescription className="min-h-[3rem] flex items-center justify-center">
-                  Explore verified student profiles and their stories
+                  General Fund for instant impact, or browse individual students
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Filter by field of study</li>
-                  <li>• Read personal stories</li>
-                  <li>• View loan amounts</li>
-                  <li>• Check verification status</li>
+                  <li>• General Fund (most popular)</li>
+                  <li>• Individual student selection</li>
+                  <li>• Group campaigns</li>
+                  <li>• One-time or recurring</li>
                 </ul>
               </CardContent>
             </Card>
@@ -122,19 +122,19 @@ export default function DonorsPage() {
             <Card className="text-center flex flex-col h-full">
               <CardHeader className="flex-shrink-0">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Gift className="h-8 w-8 text-blue-600" />
+                  <Shield className="h-8 w-8 text-blue-600" />
                 </div>
-                <CardTitle>2. Make Your Gift</CardTitle>
+                <CardTitle>2. We Pay Directly</CardTitle>
                 <CardDescription className="min-h-[3rem] flex items-center justify-center">
-                  Choose your donation amount and payment method
+                  100% secure process — funds go straight to loan servicers
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Secure payment processing</li>
-                  <li>• One-time or recurring gifts</li>
-                  <li>• Tax-deductible donations</li>
-                  <li>• Choose anonymity level</li>
+                  <li>• Paid to Nelnet, Sallie Mae, etc.</li>
+                  <li>• Never goes to students</li>
+                  <li>• Bank-grade security</li>
+                  <li>• Tax-deductible receipt</li>
                 </ul>
               </CardContent>
             </Card>
@@ -144,17 +144,17 @@ export default function DonorsPage() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BarChart3 className="h-8 w-8 text-purple-600" />
                 </div>
-                <CardTitle>3. Track Impact</CardTitle>
+                <CardTitle>3. Track Your Impact</CardTitle>
                 <CardDescription className="min-h-[3rem] flex items-center justify-center">
-                  Follow your students' progress and success
+                  See real results and graduation success stories
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow">
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• Real-time progress updates</li>
+                  <li>• Quarterly impact reports</li>
                   <li>• Graduation notifications</li>
-                  <li>• Thank you messages</li>
-                  <li>• Impact dashboard</li>
+                  <li>• Success story updates</li>
+                  <li>• Personal dashboard</li>
                 </ul>
               </CardContent>
             </Card>
@@ -172,11 +172,54 @@ export default function DonorsPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {/* Prominent General Fund Card */}
+          <div className="max-w-3xl mx-auto mb-12">
+            <Card className="border-2 border-green-500 bg-green-50/50 shadow-lg">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="h-8 w-8 text-green-600" />
+                </div>
+                <CardTitle className="text-2xl text-green-800">General Fund</CardTitle>
+                <CardDescription className="text-lg">
+                  <strong>The fastest way to make an impact.</strong> Your donation helps students with the most urgent needs.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center">
+                <div className="grid md:grid-cols-2 gap-4 mb-6">
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li>• <strong>One-click donation</strong> - no browsing required</li>
+                    <li>• Maximum impact allocation to urgent cases</li>
+                    <li>• Help students in crisis situations</li>
+                  </ul>
+                  <ul className="space-y-2 text-sm text-gray-700">
+                    <li>• Tax-optimized for maximum deduction</li>
+                    <li>• Quarterly impact reports sent to you</li>
+                    <li>• 100% goes directly to loan servicers</li>
+                  </ul>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white px-8" asChild>
+                    <Link href="/donate?type=general">
+                      <Heart className="h-5 w-5 mr-2" />
+                      Donate to General Fund
+                    </Link>
+                  </Button>
+                  <Badge className="bg-green-600 text-white px-4 py-2 text-sm font-semibold">Most Popular Choice</Badge>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">Or choose a more personal approach</h3>
+            <p className="text-gray-600">If you prefer to connect directly with students, here are your options:</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="flex flex-col h-full">
               <CardHeader className="flex-shrink-0">
                 <Target className="h-8 w-8 text-blue-600 mb-2" />
-                <CardTitle>Individual Students</CardTitle>
+                <CardTitle>Browse Individual Students</CardTitle>
                 <CardDescription className="min-h-[3rem] flex items-center">
                   Support specific students whose stories resonate with you
                 </CardDescription>
@@ -188,26 +231,9 @@ export default function DonorsPage() {
                   <li>• Receive personal thank you notes</li>
                   <li>• See direct loan impact</li>
                 </ul>
-                <Badge variant="secondary" className="self-start">Most Popular</Badge>
-              </CardContent>
-            </Card>
-
-            <Card className="flex flex-col h-full">
-              <CardHeader className="flex-shrink-0">
-                <Users className="h-8 w-8 text-green-600 mb-2" />
-                <CardTitle>General Fund</CardTitle>
-                <CardDescription className="min-h-[3rem] flex items-center">
-                  Help students with the most urgent needs
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col justify-between">
-                <ul className="space-y-2 text-sm text-gray-600 mb-4 flex-grow">
-                  <li>• Maximum impact allocation</li>
-                  <li>• Help students in crisis</li>
-                  <li>• Quarterly impact reports</li>
-                  <li>• Tax optimization</li>
-                </ul>
-                <Badge variant="outline" className="self-start">Highest Impact</Badge>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link href="/donate?type=individual">Browse Students</Link>
+                </Button>
               </CardContent>
             </Card>
 
@@ -226,7 +252,9 @@ export default function DonorsPage() {
                   <li>• Join company initiatives</li>
                   <li>• Build giving communities</li>
                 </ul>
-                <Badge variant="outline" className="self-start">Community Driven</Badge>
+                <Button variant="outline" className="w-full" asChild>
+                  <Link href="/donate?type=group">View Campaigns</Link>
+                </Button>
               </CardContent>
             </Card>
           </div>

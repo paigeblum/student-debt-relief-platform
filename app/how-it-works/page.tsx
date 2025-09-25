@@ -218,7 +218,7 @@ export default function HowItWorksPage() {
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
-                    <span>Student loan documentation</span>
+                    <span>One loan statement (that's it!)</span>
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
@@ -467,10 +467,10 @@ export default function HowItWorksPage() {
                   Your donations create immediate impact:
                 </p>
                 <ul className="text-sm space-y-1">
-                  <li>• 100% goes to student loans</li>
-                  <li>• No hidden fees or deductions</li>
+                  <li>• Paid directly to loan servicers</li>
+                  <li>• Students never receive cash</li>
                   <li>• Real-time progress tracking</li>
-                  <li>• Transparent fund allocation</li>
+                  <li>• 100% goes to debt reduction</li>
                 </ul>
               </CardContent>
             </Card>

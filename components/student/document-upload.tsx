@@ -20,11 +20,7 @@ interface UploadFormData {
 }
 
 const documentTypes = [
-  { value: 'LOAN_STATEMENT', label: 'Loan Statement' },
-  { value: 'INCOME_VERIFICATION', label: 'Income Verification' },
-  { value: 'ENROLLMENT_PROOF', label: 'Enrollment Proof' },
-  { value: 'TAX_DOCUMENT', label: 'Tax Document' },
-  { value: 'OTHER', label: 'Other' },
+  { value: 'LOAN_STATEMENT', label: 'Loan Statement (Required)' },
 ]
 
 export function DocumentUpload({ studentId, onUpload }: DocumentUploadProps) {
@@ -149,35 +145,31 @@ export function DocumentUpload({ studentId, onUpload }: DocumentUploadProps) {
       <CardHeader>
         <CardTitle className="flex items-center">
           <FileText className="mr-2 h-5 w-5" />
-          Upload Verification Documents
+          Upload Your Loan Statement
         </CardTitle>
+        <p className="text-sm text-muted-foreground mt-2">
+          <strong>One document is all we need!</strong> Upload your most recent loan statement and we'll automatically extract all the information needed to verify your account.
+        </p>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-          <div>
-            <Label>Document Type</Label>
-            <Select
-              onValueChange={(value) => setValue('type', value)}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select document type" />
-              </SelectTrigger>
-              <SelectContent>
-                {documentTypes.map((type) => (
-                  <SelectItem key={type.value} value={type.value}>
-                    <div className="flex items-center">
-                      {uploadedFiles.includes(type.value) && (
-                        <CheckCircle className="mr-2 h-4 w-4 text-green-600" />
-                      )}
-                      {type.label}
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            {errors.type && (
-              <p className="text-sm text-red-600 mt-1">Please select a document type</p>
-            )}
+          {/* Auto-set document type to loan statement */}
+          <input type="hidden" {...register('type')} value="LOAN_STATEMENT" />
+
+          {/* Info box explaining what we can extract */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+            <h4 className="font-medium text-blue-800 mb-2">🧠 What we'll automatically extract from your loan statement:</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-blue-700">
+              <div>• Total loan balance</div>
+              <div>• Monthly payment amount</div>
+              <div>• Interest rate</div>
+              <div>• Loan servicer name</div>
+              <div>• Account numbers</div>
+              <div>• Loan types & terms</div>
+            </div>
+            <p className="text-xs text-blue-600 mt-2">
+              Our AI system will parse your statement and pre-fill all required information. You can review and edit before submitting.
+            </p>
           </div>
 
           <div>
@@ -199,18 +191,18 @@ export function DocumentUpload({ studentId, onUpload }: DocumentUploadProps) {
 
           <Button
             type="submit"
-            disabled={!selectedType || isLoading}
-            className="w-full"
+            disabled={isLoading}
+            className="w-full bg-blue-600 hover:bg-blue-700"
           >
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Uploading...
+                Processing & Extracting Data...
               </>
             ) : (
               <>
                 <Upload className="mr-2 h-4 w-4" />
-                Upload Document
+                Upload Loan Statement & Complete Verification
               </>
             )}
           </Button>

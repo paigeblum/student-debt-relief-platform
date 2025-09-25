@@ -148,9 +148,9 @@ export function TrustSection() {
                   <p>
                     <strong>Group campaign</strong> tax status varies by campaign structure and beneficiary organization.
                   </p>
-                  <p className="pt-2 border-t">
-                    All funds are held in trust and distributed directly to verified loan servicers or qualified educational institutions.
-                    No funds go directly to individual students as cash payments.
+                  <p className="pt-2 border-t font-medium text-green-700">
+                    🔒 <strong>100% Secure Payment Process:</strong> All funds are held in trust and distributed directly to verified loan servicers (Sallie Mae, Nelnet, FedLoan, etc.) or qualified educational institutions.
+                    No funds ever go to individual students as cash payments — we pay your servicer directly on your behalf.
                   </p>
                 </div>
               </div>

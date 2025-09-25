@@ -15,53 +15,53 @@ export function DonorOptions() {
   const donationTypes = [
     {
       title: 'General Fund',
-      subtitle: 'Tax-Deductible',
-      description: 'Support students in need through our verified fund. Get tax receipts and quarterly impact reports.',
+      subtitle: 'Fastest Impact',
+      description: 'The most popular choice! One-click donation helps students with urgent needs. We pay loan servicers directly.',
       icon: Building,
       color: 'text-green-600',
       bgColor: 'bg-green-50',
-      borderColor: 'border-green-200',
-      badge: 'Tax Deductible',
+      borderColor: 'border-green-500',
+      badge: 'Most Popular',
       badgeVariant: 'default' as const,
       features: [
-        'IRS tax deduction',
-        'Quarterly impact reports',
-        'Professional fund management',
-        'Maximum community impact'
+        'One-click donation - no browsing',
+        'Maximum impact allocation',
+        'Paid directly to loan servicers',
+        'Tax-deductible + quarterly reports'
       ]
     },
     {
-      title: 'Support a Student',
-      subtitle: 'Personal Giving',
-      description: 'Choose a specific student to support directly. Build a personal connection and see immediate impact.',
+      title: 'Browse Students',
+      subtitle: 'Personal Connection',
+      description: 'Choose specific students whose stories resonate with you. Build personal connections while we pay their loan servicers.',
       icon: Heart,
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
-      borderColor: 'border-red-200',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-200',
       badge: 'Personal',
       badgeVariant: 'secondary' as const,
       features: [
         'Choose your recipient',
-        'Direct personal impact',
-        'Thank you messages',
-        'Progress updates'
+        'Follow their journey',
+        'Paid directly to their loan servicers',
+        'Personal thank you messages'
       ]
     },
     {
-      title: 'Support a Group',
-      subtitle: 'Targeted Giving',
-      description: 'Fund students from specific schools, programs, or causes. Amplify your impact through group campaigns.',
+      title: 'Group Campaigns',
+      subtitle: 'Community Impact',
+      description: 'Join community efforts for special causes like supporting teachers or nurses. All funds go to loan servicers.',
       icon: Users,
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      borderColor: 'border-blue-200',
-      badge: 'Group Impact',
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50',
+      borderColor: 'border-purple-200',
+      badge: 'Community',
       badgeVariant: 'secondary' as const,
       features: [
-        'Target specific causes',
-        'Group fundraising goals',
-        'Community impact',
-        'Varies by campaign'
+        'Support underrepresented groups',
+        'Join company initiatives',
+        'Paid directly to loan servicers',
+        'Community fundraising goals'
       ]
     }
   ]
@@ -71,10 +71,10 @@ export function DonorOptions() {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Three Ways to Make an Impact
+            Make Tangible Impact Now
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the giving approach that resonates with you. Every dollar makes a real difference in a student's life.
+            Every dollar goes directly to loan servicers — never to students' pockets. Choose how you want to help.
           </p>
         </div>
 
@@ -127,10 +127,10 @@ export function DonorOptions() {
         </div>
 
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 text-sm text-muted-foreground bg-muted/50 rounded-lg px-4 py-3">
+          <div className="inline-flex items-center space-x-2 text-sm text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-3">
             <Info className="h-4 w-4" />
             <span>
-              All donations are processed securely. Tax deductibility varies by donation type.
+              🔒 <strong>100% Secure:</strong> All funds go directly to verified loan servicers (Nelnet, Sallie Mae, etc.) — never to students.
             </span>
           </div>
         </div>
