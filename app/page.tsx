@@ -9,9 +9,6 @@ export default function HomePage() {
     <div className="min-h-screen">
       <Hero />
       <DonorOptions />
-      <StudentExplainer />
-      <Stats />
-      <TrustSection />
     </div>
   )
 }

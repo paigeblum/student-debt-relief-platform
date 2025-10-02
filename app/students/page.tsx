@@ -63,7 +63,7 @@ export default function StudentsPage() {
       {/* Stats Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
+          <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">$2.4M+</div>
               <div className="text-gray-600">Total Debt Relief Funded</div>
@@ -71,10 +71,6 @@ export default function StudentsPage() {
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">1,200+</div>
               <div className="text-gray-600">Students Helped</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">85%</div>
-              <div className="text-gray-600">Success Rate</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">30 days</div>

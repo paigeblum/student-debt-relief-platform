@@ -30,14 +30,6 @@ export function Stats() {
       bgColor: 'bg-red-50'
     },
     {
-      name: 'Success Rate',
-      value: '95%',
-      description: 'Of students complete their programs',
-      icon: Target,
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50'
-    },
-    {
       name: 'Average Relief',
       value: '$5,000',
       description: 'Per student debt reduction',
@@ -93,40 +85,6 @@ export function Stats() {
           ))}
         </div>
 
-        {/* Call to action */}
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            Ready to be part of this impact?
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/auth/signup" className="group">
-              <Card className="bg-blue-600 border-0 text-white hover:bg-blue-700 transition-colors">
-                <CardContent className="p-4">
-                  <div className="text-center">
-                    <h3 className="font-semibold mb-1">For Students</h3>
-                    <p className="text-sm text-blue-100 mb-3">Get help with your educational debt</p>
-                    <div className="text-sm font-medium underline group-hover:no-underline">
-                      Get Started →
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-            <Link href="/donate" className="group">
-              <Card className="bg-green-600 border-0 text-white hover:bg-green-700 transition-colors">
-                <CardContent className="p-4">
-                  <div className="text-center">
-                    <h3 className="font-semibold mb-1">For Donors</h3>
-                    <p className="text-sm text-green-100 mb-3">Support the next generation of leaders</p>
-                    <div className="text-sm font-medium underline group-hover:no-underline">
-                      Start Giving →
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   )

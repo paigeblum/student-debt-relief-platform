@@ -15,8 +15,8 @@ export function DonorOptions() {
   const donationTypes = [
     {
       title: 'General Fund',
-      subtitle: 'Fastest Impact',
-      description: 'The most popular choice! One-click donation helps students with urgent needs. We pay loan servicers directly.',
+      subtitle: 'Tax Deductible',
+      description: 'One-click donation to all students in the network',
       icon: Building,
       color: 'text-green-600',
       bgColor: 'bg-green-50',
@@ -24,16 +24,15 @@ export function DonorOptions() {
       badge: 'Most Popular',
       badgeVariant: 'default' as const,
       features: [
-        'One-click donation - no browsing',
-        'Maximum impact allocation',
-        'Paid directly to loan servicers',
-        'Tax-deductible + quarterly reports'
+        'Broadest Impact',
+        'Tax Deductible',
+        'Browse Students'
       ]
     },
     {
-      title: 'Browse Students',
-      subtitle: 'Personal Connection',
-      description: 'Choose specific students whose stories resonate with you. Build personal connections while we pay their loan servicers.',
+      title: 'Support a Student',
+      subtitle: 'Personal Giving',
+      description: 'Choose specific students and give to them directly',
       icon: Heart,
       color: 'text-blue-600',
       bgColor: 'bg-blue-50',
@@ -42,15 +41,13 @@ export function DonorOptions() {
       badgeVariant: 'secondary' as const,
       features: [
         'Choose your recipient',
-        'Follow their journey',
-        'Paid directly to their loan servicers',
-        'Personal thank you messages'
+        'Track their progress'
       ]
     },
     {
-      title: 'Group Campaigns',
-      subtitle: 'Community Impact',
-      description: 'Join community efforts for special causes like supporting teachers or nurses. All funds go to loan servicers.',
+      title: 'Support a Group',
+      subtitle: 'Targeted Giving',
+      description: 'Give directly to a group of students',
       icon: Users,
       color: 'text-purple-600',
       bgColor: 'bg-purple-50',
@@ -58,10 +55,8 @@ export function DonorOptions() {
       badge: 'Community',
       badgeVariant: 'secondary' as const,
       features: [
-        'Support underrepresented groups',
-        'Join company initiatives',
-        'Paid directly to loan servicers',
-        'Community fundraising goals'
+        'Choose among existing groups',
+        'May be tax deductible'
       ]
     }
   ]
@@ -71,10 +66,10 @@ export function DonorOptions() {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            Make Tangible Impact Now
+            Three Ways to Give
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every dollar goes directly to loan servicers — never to students' pockets. Choose how you want to help.
+            Every dollar goes directly to loan servicers. Choose how you want to help.
           </p>
         </div>
 
@@ -116,7 +111,7 @@ export function DonorOptions() {
                 <div className="pt-4">
                   <Button className="w-full button-hover-lift" variant="outline" asChild>
                     <Link href={`/donate?type=${option.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                      Choose This Option
+                      {option.title === 'General Fund' ? 'Choose This Option' : option.title === 'Support a Student' ? 'Browse Students' : 'Browse Groups'}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -126,14 +121,6 @@ export function DonorOptions() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 text-sm text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-3">
-            <Info className="h-4 w-4" />
-            <span>
-              🔒 <strong>100% Secure:</strong> All funds go directly to verified loan servicers (Nelnet, Sallie Mae, etc.) — never to students.
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   )
