@@ -31,10 +31,10 @@ export function Hero() {
                   <span className="text-sm opacity-90 font-normal">Get Started</span>
                 </Link>
               </Button>
-              <Button size="lg" className="text-lg px-8 py-6 h-auto button-hover-lift bg-green-600 hover:bg-green-700 text-white" asChild>
-                <Link href="/donate" className="flex flex-col items-center space-y-1 text-white">
-                  <span className="font-semibold">I'm a Donor</span>
-                  <span className="text-sm opacity-90 font-normal">Choose how to give</span>
+              <Button size="lg" className="text-lg px-8 py-6 h-auto button-hover-lift bg-green-600 hover:bg-green-700" asChild>
+                <Link href="/donate" className="flex flex-col items-center space-y-1 text-white hover:text-white">
+                  <span className="font-semibold text-white">I'm a Donor</span>
+                  <span className="text-sm opacity-90 font-normal text-white">Choose how to give</span>
                 </Link>
               </Button>
             </div>
